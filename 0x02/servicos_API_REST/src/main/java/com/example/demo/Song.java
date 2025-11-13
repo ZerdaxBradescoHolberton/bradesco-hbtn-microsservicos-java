@@ -77,8 +77,8 @@ public class Song {
 
 	@Override
 	public String toString() {
-		return "Song [id=" + id + ", nome=" + nome + ", artista=" + artista + ", album=" + album + ", anoLancamento="
-				+ anoLancamento + "]";
+		return String.format("{\"id\":%d,\"nome\":\"%s\",\"artista\":\"%s\",\"album\":\"%s\",\"anoLancamento\":\"%s\"}", 
+				id, nome, artista, album, anoLancamento);
 	}
 		
 }

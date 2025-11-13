@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import static java.util.Objects.nonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +28,8 @@ public class SongRepository {
 
 	public void addSong(Song s) {
 		// TODO
+		Song song = list.stream().filter(t -> t.getId().equals(s.getId())).findFirst().orElse(null);
+		if(nonNull(song)) throw new IllegalArgumentException("Música já cadastrada com o atual id!");
 		list.add(s);
 	}
 
