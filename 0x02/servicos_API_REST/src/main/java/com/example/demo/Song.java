@@ -9,6 +9,13 @@ public class Song {
 	private String album;
 	private String anoLancamento;
 	
+	
+	
+	public Song() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Song(Integer id, String nome, String artista, String album, String anoLancamento) {
 		super();
 		this.id = id;
