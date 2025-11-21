@@ -19,9 +19,9 @@ public class Telefone {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	@Column
-	private String DDD;
-	@Column
 	private String numero;
+	@Column
+	private int DDD;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "cliente_id")
@@ -36,12 +36,12 @@ public class Telefone {
 		this.id = id;
 	}
 
-	public String getDDD() {
+	public int getDDD() {
 		return DDD;
 	}
 
-	public void setDDD(String dDD) {
-		DDD = dDD;
+	public void setDDD(int DDD) {
+		this.DDD = DDD;
 	}
 
 	public String getNumero() {
