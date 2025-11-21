@@ -27,11 +27,12 @@ public class Cliente {
 	
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonManagedReference
-	private List<Endereco> enderecos;
-	
+	private List<Telefone> telefones;
+
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonManagedReference
-	private List<Telefone> telefones;
+	private List<Endereco> enderecos;
+	
 	
 	public Cliente() {
 		super();
