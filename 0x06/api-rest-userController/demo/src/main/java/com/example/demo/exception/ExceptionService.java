@@ -12,7 +12,7 @@ public class ExceptionService {
 	public ResponseEntity<CPFException> handleException(CPFException err){
 		UserErrorResponse uer = new UserErrorResponse();
 		uer.setStatus(HttpStatus.BAD_REQUEST.value()); 
-		uer.setMessage(err.getMessage());
+		uer.setMessage("You have entered CPF "+err.getMessage()+" invalid.");
 		return new ResponseEntity(uer,HttpStatus.BAD_REQUEST); 
 	}
 	
@@ -20,7 +20,7 @@ public class ExceptionService {
 	public ResponseEntity<UserIdException> handleException(UserIdException err){
 		UserErrorResponse uer = new UserErrorResponse();
 		uer.setStatus(HttpStatus.BAD_REQUEST.value()); 
-		uer.setMessage(err.getMessage());
+		uer.setMessage("You have entered ID "+err.getMessage()+" invalid.");
 		return new ResponseEntity(uer,HttpStatus.BAD_REQUEST); 
 	}
 	
@@ -28,7 +28,7 @@ public class ExceptionService {
 	public ResponseEntity<UserNameException> handleException(UserNameException err){
 		UserErrorResponse uer = new UserErrorResponse();
 		uer.setStatus(HttpStatus.BAD_REQUEST.value()); 
-		uer.setMessage(err.getMessage());
+		uer.setMessage("You have entered USERNAME "+err.getMessage()+" invalid.");
 		return new ResponseEntity(uer,HttpStatus.BAD_REQUEST); 
 	}
 	

@@ -21,7 +21,7 @@ public class UserController {
 	@GetMapping("/user-id/{id}")
 	public String findUserById(@PathVariable int id) {
 
-		if(!isValidUserId(id)) throw new UserIdException("You have entered invalid ID");
+		if(!isValidUserId(id)) throw new UserIdException(String.valueOf(id));
 		String msg = "You have entered valid ID";
 		// TODO
 		return msg;
@@ -32,7 +32,7 @@ public class UserController {
 
 		String msg = "You have entered valid USERNAME";
 		// TODO
-		if(!isValidUserName(userName)) throw new UserNameException("You have entered invalid USERNAME");
+		if(!isValidUserName(userName)) throw new UserNameException(userName);
 		return msg;
 	}
 
@@ -41,7 +41,7 @@ public class UserController {
 
 		String msg = "You have entered valid CPF";
 		boolean isCPFValid = isCPF(cpf);
-		if(!isCPFValid) throw new CPFException("You have entered invalid CPF");
+		if(!isCPFValid) throw new CPFException(cpf);
 		// TODO
 		return msg;
 
