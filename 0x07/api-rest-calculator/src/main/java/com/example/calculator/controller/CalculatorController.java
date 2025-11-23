@@ -63,6 +63,6 @@ public class CalculatorController {
 	@GetMapping("/integerToHexadecimal")
 	public String integerToHexadecimal(@RequestParam(name = "number1") Integer n1) {
 		// TODO
-		return String.format("%d", calculator.integerToHexadecimal(n1));
+		return String.format("%s", calculator.integerToHexadecimal(n1));
 	}
 }

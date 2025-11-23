@@ -3,7 +3,6 @@ package com.example.calculator.model;
 import static java.util.Objects.isNull;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class Calculator {
 
@@ -26,12 +25,8 @@ public class Calculator {
 		// validação -> throw new NullPointerException("Número 1 e número 2 são obrigatórios.");
 		// validação -> throw new ArithmeticException("Divisão por zero não é permitido.");
 		validacaoNulo(number1, number2);
-		try {
-			return number1 / number2;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			throw new ArithmeticException("Divisão por zero não é permitido.");
-		}
+		if (Double.valueOf(0d).equals(number2)) throw new ArithmeticException("Divisão por zero não é permitido.");
+		return number1 / number2;
 	}
 
 	public Integer factorial(Integer factorial) {

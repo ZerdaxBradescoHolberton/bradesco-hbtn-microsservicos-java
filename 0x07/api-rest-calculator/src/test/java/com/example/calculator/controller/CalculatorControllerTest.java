@@ -3,8 +3,6 @@ package com.example.calculator.controller;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
-import java.time.LocalDate;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +29,68 @@ public class CalculatorControllerTest {
 	@Test
 	void addNumbers() throws Exception {
 		// TODO
-		
+		RequestBuilder request = get("/calculator/addNumbers")
+				.param("numbe1", "4.0")
+				.param("number2", "2.0");
+		MvcResult result = mvc.perform(request).andReturn();
+		assertEquals("6,0", result.getResponse().getContentAsString());		
+	}
+	
+	@Test
+	public void subNumbers() throws Exception {
+	    // TODO
+		RequestBuilder request = get("/calculator/subNumbers")
+				.param("number1", "4.0")
+				.param("number2", "2.0");
+		MvcResult result = mvc.perform(request).andReturn();
+		assertEquals("2,0", result.getResponse().getContentAsString());		
+	}
+
+	@Test
+	public void divideNumbers() throws Exception {
+	    // TODO
+		RequestBuilder request = get("/calculator/divideNumbers")
+				.param("number1", "4.0")
+				.param("number2", "2.0");
+		MvcResult result = mvc.perform(request).andReturn();
+		assertEquals("2,0", result.getResponse().getContentAsString());		
+	}
+
+	@Test
+	public void factorial() throws Exception {
+	    // TODO
+		RequestBuilder request = get("/calculator/factorial")
+				.param("factorial", "4");
+		MvcResult result = mvc.perform(request).andReturn();
+		assertEquals("24", result.getResponse().getContentAsString());		
+	}
+
+	@Test
+	public void calculeDayBetweenDate() throws Exception {
+	    // TODO
+		RequestBuilder request = get("/calculator/calculeDayBetweenDate")
+				.param("localDate1", "2025-11-23")
+				.param("localDate2", "2025-11-25");
+		MvcResult result = mvc.perform(request).andReturn();
+		assertEquals("2", result.getResponse().getContentAsString());		
+	}
+
+	@Test
+	public void integerToBinary() throws Exception {
+	    // TODO
+		RequestBuilder request = get("/calculator/integerToBinary")
+				.param("number1", "26");
+		MvcResult result = mvc.perform(request).andReturn();
+		assertEquals("11010", result.getResponse().getContentAsString());		
+	}
+
+	@Test
+	public void integerToHexadecimal() throws Exception {
+	    // TODO
+		RequestBuilder request = get("/calculator/integerToHexadecimal")
+				.param("number1", "26");
+		MvcResult result = mvc.perform(request).andReturn();
+		assertEquals("1a", result.getResponse().getContentAsString());		
 	}
 
 	// TODO - Implementar os demais métodos: subNumbers, divideNumbers, factorial, 
